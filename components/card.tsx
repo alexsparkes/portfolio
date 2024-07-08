@@ -13,7 +13,7 @@ export const Card = ({
   description: string;
   src: string;
   stack: string[];
-  href: link,
+  href: string,
 }) => {
   return (
     <Link href={href}>
