@@ -133,3 +133,7 @@
   html {
     scroll-behavior: smooth;
   }
+
+  ::selection {
+    background: hsl(var(--card));
+  }

@@ -4,17 +4,25 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import useMouse from "@react-hook/mouse-position";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
 import { Card } from "@/components/card";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function Home() {
   const mueStack = ["React", "Javascript", "SASS"];
   const ipStack = ["React", "TypeScript", "Tailwind CSS"];
 
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
     <>
+    <motion.div className="progress-bar" style={{ scaleX }} />
       <div className="grid place-items-center min-h-screen">
         <motion.div
           className="flex flex-col items-center leading-none uppercase"
