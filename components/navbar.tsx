@@ -1,6 +1,7 @@
 import { Linkedin, Github } from "lucide-react";
 import { ModeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
@@ -18,11 +19,15 @@ export const Navbar = () => {
           <path d="M23.944 43.28L15.112 16.88H14.92L14.584 15.488L16.888 7.232H18.328L30.376 43.28H23.944ZM0.232 44V42.8H11.752V44H0.232ZM9.592 32.672V31.472H25.144V32.672H9.592ZM18.184 44V42.8H34.648V44H18.184ZM4.36 43.28L16.888 7.232H18.328L15.4 15.488L5.944 43.28H4.36Z" />
         </svg>
         <div className="flex flex-row gap-5">
-          <Button variant="default" size="icon">
+          <Button variant="default" size="icon" asChild>
+            <Link href="https://github.com/alexsparkes">
             <Github />
+            </Link>
           </Button>
-          <Button variant="default" size="icon">
+          <Button variant="default" size="icon" asChild>
+            <Link href="https://www.linkedin.com/in/alex-sparkes/">
             <Linkedin />
+            </Link>
           </Button>
           <ModeToggle />
         </div>

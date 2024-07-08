@@ -45,7 +45,7 @@ export default function Home() {
       </div>*/}
       <section id="work">
         <div className="mx-auto w-2/3 py-10">
-          <h1 className="text-[80px]">My Work</h1>
+          <h1 className="text-[50px] md:text-[75px] xl:text-[100px]">My Work</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 ">
             <Card
               name="Mue Tab"

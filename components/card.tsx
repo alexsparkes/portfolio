@@ -25,10 +25,10 @@ export const Card = ({
         height={500}
         alt="Picture of the author"
       />
-      <h3 className="text-3xl bodoni mt-3">{name}</h3>
-      <div className="flex flex-row gap-3">
+      <h3 className="text-3xl lexend font-semibold mt-3">{name}</h3>
+      <div className="flex gap-2 flex-wrap">
       {stack.map((name, index) => (
-        <span key={index} className="px-3 py-1 bg-primary rounded-full text-secondary">
+        <span key={index} className="px-3 py-1 bg-primary rounded-full text-secondary lexend text-sm">
           {name}
         </span>
       ))}
