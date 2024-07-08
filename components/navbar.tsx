@@ -6,7 +6,7 @@ import Link from "next/link";
 export const Navbar = () => {
   return (
     <div className="absolute top-0 flex flex-row items-center justify-center min-w-full mt-5">
-      <nav className="flex flex-row items-center justify-between w-3/5">
+      <nav className="flex flex-row items-center justify-between xl:w-3/5 w-4/5">
         <svg
           width="35.25"
           height="54"
