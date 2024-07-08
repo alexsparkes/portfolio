@@ -20,13 +20,13 @@ export const Navbar = () => {
         </svg>
         <div className="flex flex-row gap-5">
           <Button variant="default" size="icon" asChild>
-            <Link href="https://github.com/alexsparkes">
-            <Github />
+            <Link href="https://github.com/alexsparkes" target="_blank">
+              <Github />
             </Link>
           </Button>
           <Button variant="default" size="icon" asChild>
-            <Link href="https://www.linkedin.com/in/alex-sparkes/">
-            <Linkedin />
+            <Link href="https://www.linkedin.com/in/alex-sparkes/" target="_blank">
+              <Linkedin />
             </Link>
           </Button>
           <ModeToggle />

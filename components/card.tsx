@@ -16,7 +16,7 @@ export const Card = ({
   href: string,
 }) => {
   return (
-    <Link href={href}>
+    <Link href={href} target="_blank">
     <div className="flex flex-col gap-2 relative group hover:bg-card p-5 rounded-lg transition-all duration-300 cursor-pointer h-full">
       <Image
         className="rounded-lg"
