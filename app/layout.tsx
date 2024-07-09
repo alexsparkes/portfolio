@@ -23,8 +23,14 @@ const lexendDeca = Lexend_Deca({
 });
 
 export const metadata = {
-  title: "Alex Sparkes - Portfolio",
-  description: "Alex Sparkes' portfolio website",
+  openGraph: {
+    title: "Alex Sparkes - Portfolio",
+    description: "Alex Sparkes' portfolio website",
+    type: "website",
+    locale: "en_GB",
+    url: "https://alexspark.es",
+    site_name: "Alex Sparkes - Portfolio",
+  }
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

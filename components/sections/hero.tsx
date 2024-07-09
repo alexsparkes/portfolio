@@ -1,6 +1,8 @@
+"use client"
+
 import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
     return (
