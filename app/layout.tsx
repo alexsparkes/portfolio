@@ -2,10 +2,10 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 
 import { Advent_Pro, Libre_Bodoni, Lexend_Deca } from "next/font/google";
-import { motion, useScroll, useSpring } from "framer-motion";
 
 const bodoni = Libre_Bodoni({
   subsets: ["latin"],
@@ -48,6 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           >
             <Navbar />
             {children}
+            <Footer />
           </ThemeProvider>
         </body>
       </html>
