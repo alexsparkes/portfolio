@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Advent_Pro, Libre_Bodoni, Lexend_Deca } from "next/font/google";
 
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {children}
             <Footer />
           </ThemeProvider>
+          <SpeedInsights />
           <script
             defer
             src="https://cloud.umami.is/script.js"
