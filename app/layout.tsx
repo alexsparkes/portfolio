@@ -37,7 +37,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <head>
+          <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preconnect"
+            href="https://cloud.umami.is"
+            crossOrigin="anonymous"
+          />
+        </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased scroll-smooth	",
