@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Alex M. Sparkes' portfolio website",
     start_url: "/",
     display: "standalone",
-    background_color: "##fefae1",
+    background_color: "#fefae1",
     theme_color: "#fefae1",
     icons: [
       {
