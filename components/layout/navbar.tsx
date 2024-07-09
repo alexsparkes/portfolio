@@ -22,7 +22,9 @@ export const Navbar = () => {
   return (
     <div className="absolute top-0 flex flex-row items-center justify-center min-w-full mt-5">
       <nav className="flex flex-row items-center justify-between xl:w-3/5 w-4/5">
-        {Logo}
+        <Link href="/" aria-label="Home">
+          {Logo}
+        </Link>
         <div className="flex flex-row gap-5">
           <Button variant="default" size="icon" asChild>
             <Link
