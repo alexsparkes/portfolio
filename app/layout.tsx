@@ -30,7 +30,7 @@ export const metadata = {
     locale: "en_GB",
     url: "https://alexspark.es",
     site_name: "Alex Sparkes - Portfolio",
-  }
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -56,6 +56,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {children}
             <Footer />
           </ThemeProvider>
+          <script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="d3d9c5ac-fa9b-4b75-87fb-d7328affac4c"
+          ></script>
         </body>
       </html>
     </>
