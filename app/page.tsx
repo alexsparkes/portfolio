@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <Hero />
       <About />
-      {/*<Gallery />*/}
+      <Gallery />
       <Work />
     </>
   );
