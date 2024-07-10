@@ -11,9 +11,14 @@ export const Gallery = () => {
         <h1 className="text-[50px] md:text-[75px] xl:text-[80px] bodoni">
           Gallery
         </h1>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {gallerydata.map((image, index) => (
-            <Link href={image.src} key={index} className="relative group cursor-pointer" target="_blank">
+            <Link
+              href={image.src}
+              key={index}
+              className="relative group cursor-pointer"
+              target="_blank"
+            >
               <Image
                 src={image.src}
                 alt={image.alt}
