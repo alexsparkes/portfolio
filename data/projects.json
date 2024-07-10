@@ -1,16 +1,16 @@
 [
-    {
-      "name": "Mue Tab",
-      "description": "Mue Tab is a customizable new tab extension that transforms your browsing experience. Enjoy stunning backgrounds, motivational quotes, and useful widgets like to-do lists and weather updates. Personalize your tab with themes and productivity tools to make every new tab inspiring and efficient.",
-      "src": "/projects/muetab.png",
-      "stack": ["React", "Javascript", "SASS"],
-      "href": "https://muetab.com"
-    },
-    {
-      "name": "Kaiso IP",
-      "description": "A reliable, modern take on the IP locator tool.",
-      "src": "/projects/ip.png",
-      "stack": ["React", "TypeScript", "Tailwind CSS"],
-      "href": "https://ip.kaiso.one"
-    }
-  ]
+  {
+    "name": "Mue Tab",
+    "description": "Mue Tab is a customizable new tab extension that transforms your browsing experience. Enjoy stunning backgrounds, motivational quotes, and useful widgets like to-do lists and weather updates. Personalize your tab with themes and productivity tools to make every new tab inspiring and efficient.",
+    "src": "/projects/muetab.png",
+    "stack": ["React", "Javascript", "SASS"],
+    "href": "https://muetab.com"
+  },
+  {
+    "name": "Kaiso IP",
+    "description": "A reliable, modern take on the IP locator tool.",
+    "src": "/projects/ip.png",
+    "stack": ["React", "TypeScript", "Tailwind CSS"],
+    "href": "https://ip.kaiso.one"
+  }
+]

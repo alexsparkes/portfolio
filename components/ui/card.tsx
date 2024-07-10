@@ -1,38 +1,42 @@
+// components/ui/Card.tsx
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { FC } from "react";
 
-export const Card = ({
-  name,
-  description,
-  src,
-  stack,
-  href,
-}: {
+interface CardProps {
   name: string;
   description: string;
   src: string;
   stack: string[];
   href: string;
+}
+
+export const Card: FC<CardProps> = ({
+  name,
+  description,
+  src,
+  stack,
+  href,
 }) => {
   return (
-    <Link href={href} target="_blank">
+    <Link href={href} target="_blank" rel="noopener noreferrer">
       <div className="flex flex-col gap-2 relative group hover:bg-card p-5 rounded-lg transition-all duration-300 cursor-pointer h-full">
         <Image
           className="rounded-lg"
           src={src}
           width={500}
           height={500}
-          alt="Picture of the author"
+          alt={name}
         />
         <h3 className="text-3xl lexend font-semibold mt-3">{name}</h3>
         <div className="flex gap-2 flex-wrap">
-          {stack.map((name, index) => (
+          {stack.map((tech, index) => (
             <span
               key={index}
               className="px-3 py-1 bg-primary rounded-full text-secondary lexend text-sm"
             >
-              {name}
+              {tech}
             </span>
           ))}
         </div>

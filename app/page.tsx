@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/*<About />*/}
+      <About />
       <Work />
     </>
   );
