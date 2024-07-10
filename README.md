@@ -29,8 +29,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/alexsparkes/portfolio">
+    <img src="assets/logo_light.png#gh-light-mode-only" alt="Logo" width="80" height="80">
+    <img src="assets/logo_dark.png#gh-dark-mode-only" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Portfolio Website</h3>
