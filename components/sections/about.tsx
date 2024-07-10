@@ -9,7 +9,10 @@ export const About = () => {
         <h1 className="text-[50px] md:text-[75px] xl:text-[80px] bodoni">
           Who am I?
         </h1>
-        <p>I'm not good at wording this, I'll let my work speak for itself.</p>
+        <p>
+          I&apos;m not good at wording this, I&apos;ll let my work speak for
+          itself.
+        </p>
         <Button className="mt-5 lexend gap-3 group" size="lg" asChild>
           <Link href="https://github.com/alexsparkes">
             Explore my work{" "}
