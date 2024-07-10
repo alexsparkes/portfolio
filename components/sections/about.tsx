@@ -9,13 +9,12 @@ export const About = () => {
         <h1 className="text-[50px] md:text-[75px] xl:text-[80px] bodoni">
           Who am I?
         </h1>
-        <p>
-          I&apos;m not good at wording this, I&apos;ll let my work speak for
-          itself.
+        <p className="lexend">
+          Hello! I&apos;m Alex, a student and developer based in the UK. I&apos;m passionate about building things using code and learning new technologies. I&apos;m currently studying Computer Science at the University of Hull and working on a variety of projects in my free time. I&apos;m always looking for new opportunities to learn and grow as a developer.
         </p>
         <Button className="mt-5 lexend gap-3 group" size="lg" asChild>
-          <Link href="https://github.com/alexsparkes">
-            Explore my work{" "}
+          <Link href="https://github.com/alexsparkes" target="_blank">
+            Explore my Github
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 transition-all duration-300" />
           </Link>
         </Button>

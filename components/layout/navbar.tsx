@@ -4,6 +4,7 @@ import { SiGithub as Github } from "@icons-pack/react-simple-icons";
 import { Linkedin } from "lucide-react";
 import { ModeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 import Link from "next/link";
 
 export const Navbar = () => {
@@ -47,6 +48,12 @@ export const Navbar = () => {
             </Link>
           </Button>
           <ModeToggle />
+          {/*<Button className="lexend gap-3" size="lg" asChild>
+          <Link href="">
+            Download CV
+            <Download className="w-4 h-4" />
+          </Link>
+        </Button>*/}
         </div>
       </nav>
     </div>
