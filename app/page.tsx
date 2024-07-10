@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
+import { Gallery } from "@/components/sections/gallery";
 import { Work } from "@/components/sections/work";
 
 interface Metadata {
@@ -18,6 +19,7 @@ export default function Home() {
     <>
       <Hero />
       <About />
+      {/*<Gallery />*/}
       <Work />
     </>
   );

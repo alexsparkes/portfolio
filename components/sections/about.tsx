@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const About = () => {
   return (
-    <section className="grid place-items-center h-screen bg-card px-5">
+    <section className="grid place-items-center bg-card px-5">
       <div className="mx-auto lg:w-2/3 w-full py-10">
         <h1 className="text-[50px] md:text-[75px] xl:text-[80px] bodoni">
           Who am I?
