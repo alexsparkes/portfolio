@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "analyze": "ANALYZE=true next build",
+    "build:prod": "next build && next export"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.7.0",
@@ -33,10 +36,12 @@
     "@types/node": "^24.5.0",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "critters": "^0.0.25",
     "eslint": "^9.35.0",
     "eslint-config-next": "15.5.3",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.13",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "webpack-bundle-analyzer": "^4.10.2"
   }
 }
