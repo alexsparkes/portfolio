@@ -7,11 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const Navbar = () => {
   const pathname = usePathname();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const navRef = useRef<HTMLElement>(null);
+  const itemRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
 
   const navItems = [
     { href: "/work", label: "Work" },
@@ -25,6 +28,18 @@ export const Navbar = () => {
 
   const activeItem = getActiveItem();
   const indicatorItem = hoveredItem || activeItem;
+
+  useEffect(() => {
+    if (indicatorItem && navRef.current && itemRefs.current[indicatorItem]) {
+      const navRect = navRef.current.getBoundingClientRect();
+      const itemRect = itemRefs.current[indicatorItem]!.getBoundingClientRect();
+
+      setIndicatorStyle({
+        left: itemRect.left - navRect.left,
+        width: itemRect.width,
+      });
+    }
+  }, [indicatorItem]);
 
   const Logo = (
     <svg
@@ -47,29 +62,29 @@ export const Navbar = () => {
           <Link href="/" aria-label="Home">
             {Logo}
           </Link>
-          <nav className="hidden md:flex relative rounded-full p-1">
+          <nav
+            ref={navRef}
+            className="hidden md:flex relative rounded-full p-1"
+          >
             {/* Animated background indicator */}
             <div
-              className={`absolute inset-y-1 bg-card dark:bg-neutral-800/80 rounded-full  transition-all duration-300 ease-out ${
+              className={`absolute inset-y-1 bg-card dark:bg-neutral-800/80 rounded-full transition-all duration-300 ease-out ${
                 indicatorItem ? "opacity-100" : "opacity-0"
               }`}
               style={{
-                left: indicatorItem
-                  ? `${
-                      navItems.findIndex(
-                        (item) => item.href === indicatorItem
-                      ) * 33.333
-                    }%`
-                  : "0%",
-                width: indicatorItem ? "33.333%" : "0%",
+                left: `${indicatorStyle.left}px`,
+                width: `${indicatorStyle.width}px`,
               }}
             />
 
             {navItems.map((item) => (
               <Link
                 key={item.href}
+                ref={(el) => {
+                  itemRefs.current[item.href] = el;
+                }}
                 href={item.href}
-                className={`lexend relative z-10 px-5 py-2 rounded-full transition-all duration-200 ease-out text-center min-w-[5rem] ${
+                className={`lexend relative z-10 px-5 py-2 rounded-full transition-all duration-200 ease-out text-center ${
                   pathname === item.href
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
