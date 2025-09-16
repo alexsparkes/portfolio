@@ -11,6 +11,10 @@ export const Gallery = () => {
         <h1 className="text-[50px] md:text-[75px] xl:text-[80px] bodoni">
           Gallery
         </h1>
+        <p className="lexend text-lg mb-10 text-muted-foreground max-w-2xl">
+          Explore my photography gallery featuring moments captured from around
+          the world.
+        </p>
         <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {gallerydata.map((image, index) => (
             <Link

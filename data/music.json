@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Random Access Memories",
+    "artist": "Daft Punk",
+    "year": "2013",
+    "genre": "Electronic",
+    "tracks": 13,
+    "duration": "74:24",
+    "artwork": "/albums/ram.png",
+    "spotify_url": "https://open.spotify.com/album/4m2880jivSbbyEGAKfITCa",
+    "description": "A stunning fusion of electronic and live instrumentation that redefined modern dance music. The perfect soundtrack for creative breakthroughs.",
+    "favorite_track": "Get Lucky"
+  },
+  {
+    "title": "AM",
+    "artist": "Arctic Monkeys",
+    "year": "2013",
+    "genre": "Alternative Rock",
+    "tracks": 12,
+    "duration": "41:35",
+    "artwork": "/albums/am.jpg",
+    "spotify_url": "https://open.spotify.com/album/78bpIziExqiI9qztvNFlQu",
+    "description": "Dark, sleek rock with incredible riffs and Alex Turner's magnetic vocals. Every track hits differently - perfect for focused coding sessions.",
+    "favorite_track": "Do I Wanna Know?"
+  },
+  {
+    "title": "SOUR",
+    "artist": "Olivia Rodrigo",
+    "year": "2021",
+    "genre": "Pop",
+    "tracks": 11,
+    "duration": "34:46",
+    "artwork": "/albums/sour.png",
+    "spotify_url": "https://open.spotify.com/album/6s84u2TUpR3wdUv4NgKA2j",
+    "description": "Raw emotion meets incredible songwriting. This album captures the complexity of growing up with such honesty and musical sophistication.",
+    "favorite_track": "good 4 u"
+  },
+  {
+    "title": "Graduation",
+    "artist": "Kanye West",
+    "year": "2007",
+    "genre": "Hip Hop",
+    "tracks": 13,
+    "duration": "51:23",
+    "artwork": "/albums/graduation.jpg",
+    "spotify_url": "https://open.spotify.com/album/4SZko61aMnmgvNhfhgTuD3",
+    "description": "Ambitious production and introspective lyrics that push boundaries. The electronic influences and bold creativity inspire my approach to problem-solving.",
+    "favorite_track": "Stronger"
+  },
+  {
+    "title": "Discovery",
+    "artist": "Daft Punk",
+    "year": "2001",
+    "genre": "Electronic",
+    "tracks": 14,
+    "duration": "60:57",
+    "artwork": "/albums/discovery.png",
+    "spotify_url": "https://open.spotify.com/album/2noRn2Aes5aoNVsU6iWThc",
+    "description": "A journey through house, disco, and electronic perfection. Each track builds on the last, creating an immersive experience that mirrors the flow of coding.",
+    "favorite_track": "One More Time"
+  },
+  {
+    "title": "Flower Boy",
+    "artist": "Tyler, The Creator",
+    "year": "2017",
+    "genre": "Hip Hop",
+    "tracks": 14,
+    "duration": "46:29",
+    "artwork": "/albums/flower_boy.png",
+    "spotify_url": "https://open.spotify.com/album/2PQc7c1wXjm1dnC2MkZHQJ",
+    "description": "Colorful, introspective, and beautifully produced. Tyler's growth as an artist shines through every track - inspiring me to embrace creativity and authenticity.",
+    "favorite_track": "See You Again"
+  }
+]

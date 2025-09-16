@@ -10,6 +10,7 @@ interface CardProps {
   src: string;
   stack: string[];
   href: string;
+  isInternal?: boolean;
 }
 
 export const Card: FC<CardProps> = ({
@@ -18,9 +19,14 @@ export const Card: FC<CardProps> = ({
   src,
   stack,
   href,
+  isInternal = false,
 }) => {
   return (
-    <Link href={href} target="_blank" rel="noopener noreferrer">
+    <Link
+      href={href}
+      target={isInternal ? "_self" : "_blank"}
+      rel={isInternal ? "" : "noopener noreferrer"}
+    >
       <div className="flex flex-col gap-2 relative group hover:bg-card p-5 rounded-lg transition-all duration-300 cursor-pointer h-full">
         <Image
           className="rounded-lg"

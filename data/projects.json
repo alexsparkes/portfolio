@@ -1,23 +1,95 @@
 [
   {
+    "slug": "mue-tab",
     "name": "Mue Tab",
     "description": "Mue Tab is a customizable new tab extension that transforms your browsing experience. Enjoy stunning backgrounds, motivational quotes, and useful widgets like to-do lists and weather updates. Personalize your tab with themes and productivity tools to make every new tab inspiring and efficient.",
     "src": "/projects/muetab.png",
     "stack": ["React", "Javascript", "SASS"],
-    "href": "https://muetab.com"
+    "href": "https://muetab.com",
+    "github": "https://github.com/mue/mue",
+    "featured": true,
+    "year": "2020-2024",
+    "status": "Active",
+    "detailed_description": "Mue Tab started as a simple idea: make every new tab page beautiful and functional. What began as a personal project has grown into a popular browser extension with thousands of users worldwide. The extension offers a completely customizable experience with stunning photography, useful widgets, and productivity features.",
+    "key_features": [
+      "Customizable backgrounds from multiple sources",
+      "Weather widget with location detection",
+      "To-do list with local storage",
+      "Quick links for frequently visited sites",
+      "Search functionality with multiple engines",
+      "Time and date display with timezone support",
+      "Motivational quotes rotation",
+      "Keyboard shortcuts for power users"
+    ],
+    "technical_highlights": [
+      "Modular widget architecture allowing easy feature additions",
+      "Efficient image preloading and caching system",
+      "Responsive design that works across all screen sizes",
+      "Privacy-focused design with local data storage",
+      "Extensive customization options with live preview"
+    ]
   },
   {
+    "slug": "kaiso-ip",
     "name": "Kaiso IP",
     "description": "A reliable, modern take on the IP locator tool.",
     "src": "/projects/ip.png",
     "stack": ["React", "TypeScript", "Tailwind CSS"],
-    "href": "https://ip.kaiso.one"
+    "href": "https://ip.kaiso.one",
+    "github": "https://github.com/alexsparkes/kaiso-ip",
+    "featured": false,
+    "year": "2023",
+    "status": "Complete",
+    "detailed_description": "Kaiso IP is a clean, modern IP lookup tool that provides detailed information about any IP address. Built with performance and user experience in mind, it offers instant results with a beautiful, intuitive interface. The tool provides comprehensive geolocation data, ISP information, and security insights.",
+    "key_features": [
+      "Instant IP address lookup",
+      "Detailed geolocation information",
+      "ISP and organization details",
+      "Security threat analysis",
+      "IPv4 and IPv6 support",
+      "Clean, modern interface",
+      "Mobile-responsive design",
+      "Copy-to-clipboard functionality"
+    ],
+    "technical_highlights": [
+      "Built with TypeScript for type safety",
+      "Optimized API calls with caching",
+      "Error boundaries for graceful failure handling",
+      "Responsive design using Tailwind CSS",
+      "Fast loading with code splitting"
+    ]
   },
   {
+    "slug": "scroll",
     "name": "Scroll",
-    "description": "Scroll reinvents Wikipedia discovery with an endless, TikTok-inspired feed. Swipe to uncover the world’s knowledge, one scroll at a time.",
+    "description": "Scroll reinvents Wikipedia discovery with an endless, TikTok-inspired feed. Swipe to uncover the world's knowledge, one scroll at a time.",
     "src": "/projects/scroll.png",
     "stack": ["React", "TypeScript", "Tailwind CSS"],
-    "href": "https://scroll.alexspark.es"
+    "href": "https://scroll.alexspark.es",
+    "github": "https://github.com/alexsparkes/scroll",
+    "featured": true,
+    "year": "2024",
+    "status": "Active",
+    "detailed_description": "Scroll transforms how people discover Wikipedia content by presenting articles in an endless, swipeable feed similar to TikTok. This innovative approach makes learning addictive and fun, encouraging users to explore topics they might never have searched for. The app curates interesting articles and presents them in bite-sized, engaging formats.",
+    "key_features": [
+      "Infinite scroll through Wikipedia articles",
+      "Swipe gestures for navigation",
+      "Article summarization and formatting",
+      "Random article discovery",
+      "Bookmark favorite articles",
+      "Search functionality",
+      "Responsive mobile design",
+      "Offline reading capability",
+      "Share articles easily",
+      "Progress tracking"
+    ],
+    "technical_highlights": [
+      "Custom Wikipedia API wrapper for better data handling",
+      "Virtualized scrolling for performance with large lists",
+      "Progressive Web App with offline capabilities",
+      "Swipe gesture recognition with touch events",
+      "Intelligent article summarization algorithm",
+      "Responsive design optimized for mobile consumption"
+    ]
   }
 ]

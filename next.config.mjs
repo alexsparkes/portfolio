@@ -11,6 +11,11 @@ const nextConfig = {
         hostname: "cdn.muetab.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "i.scdn.co",
+        port: "",
+      },
     ],
     // Enable image optimization for better performance
     formats: ["image/webp", "image/avif"],

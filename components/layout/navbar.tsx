@@ -6,8 +6,26 @@ import { ModeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const pathname = usePathname();
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+
+  const navItems = [
+    { href: "/work", label: "Work" },
+    { href: "/gallery", label: "Gallery" },
+    { href: "/music", label: "Music" },
+  ];
+
+  const getActiveItem = () => {
+    return navItems.find((item) => pathname === item.href)?.href || null;
+  };
+
+  const activeItem = getActiveItem();
+  const indicatorItem = hoveredItem || activeItem;
+
   const Logo = (
     <svg
       width="35.25"
@@ -25,35 +43,73 @@ export const Navbar = () => {
   return (
     <div className="absolute top-0 flex flex-row items-center justify-center min-w-full mt-5">
       <nav className="flex flex-row items-center justify-between xl:w-3/5 w-4/5">
-        <Link href="/" aria-label="Home">
-          {Logo}
-        </Link>
-        <div className="flex flex-row gap-5">
-          <Button variant="default" size="icon" asChild>
-            <Link
-              href="https://github.com/alexsparkes"
-              aria-label="Github"
-              target="_blank"
-            >
-              <Github />
-            </Link>
-          </Button>
-          <Button variant="default" size="icon" asChild>
-            <Link
-              href="https://www.linkedin.com/in/alex-sparkes/"
-              aria-label="LinkedIn"
-              target="_blank"
-            >
-              <Linkedin />
-            </Link>
-          </Button>
-          <ModeToggle />
-          {/*<Button className="lexend gap-3" size="lg" asChild>
+        <div className="flex flex-row items-center gap-10 text-lg">
+          <Link href="/" aria-label="Home">
+            {Logo}
+          </Link>
+          <nav className="hidden md:flex relative rounded-full p-1">
+            {/* Animated background indicator */}
+            <div
+              className={`absolute inset-y-1 bg-card dark:bg-neutral-800/80 rounded-full  transition-all duration-300 ease-out ${
+                indicatorItem ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                left: indicatorItem
+                  ? `${
+                      navItems.findIndex(
+                        (item) => item.href === indicatorItem
+                      ) * 33.333
+                    }%`
+                  : "0%",
+                width: indicatorItem ? "33.333%" : "0%",
+              }}
+            />
+
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`lexend relative z-10 px-5 py-2 rounded-full transition-all duration-200 ease-out text-center min-w-[5rem] ${
+                  pathname === item.href
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                onMouseEnter={() => setHoveredItem(item.href)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <div className="flex flex-row items-center gap-5">
+          <div className="flex flex-row gap-2">
+            <Button variant="default" size="icon" asChild>
+              <Link
+                href="https://github.com/alexsparkes"
+                aria-label="Github"
+                target="_blank"
+              >
+                <Github />
+              </Link>
+            </Button>
+            <Button variant="default" size="icon" asChild>
+              <Link
+                href="https://www.linkedin.com/in/alex-sparkes/"
+                aria-label="LinkedIn"
+                target="_blank"
+              >
+                <Linkedin />
+              </Link>
+            </Button>
+            <ModeToggle />
+            {/*<Button className="lexend gap-3" size="lg" asChild>
           <Link href="">
             Download CV
             <Download className="w-4 h-4" />
           </Link>
         </Button>*/}
+          </div>
         </div>
       </nav>
     </div>

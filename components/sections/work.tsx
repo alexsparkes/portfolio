@@ -18,7 +18,8 @@ export const Work: FC = () => {
               description={project.description}
               src={project.src}
               stack={project.stack}
-              href={project.href}
+              href={`/work/${project.slug}`}
+              isInternal={true}
             />
           ))}
         </div>

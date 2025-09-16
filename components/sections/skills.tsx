@@ -87,7 +87,7 @@ export const Skills: FC = () => {
                 {cat.items.map(({ name, Icon }) => (
                   <li
                     key={name}
-                    className="px-3 py-2 bg-card rounded-full text-foreground/90 lexend text-sm border border-border flex items-center gap-2"
+                    className="px-3 py-2 bg-card rounded-full text-foreground/90 lexend text-sm border flex items-center gap-2"
                   >
                     <Icon aria-hidden className="w-4 h-4 text-foreground/80" />
                     <span>{name}</span>
