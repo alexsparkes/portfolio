@@ -26,7 +26,7 @@ export const Gallery = () => {
                 height={750}
                 className="h-full max-w-full rounded-lg object-cover"
               />
-              <div className="bg-gradient-to-t from-[#111111] absolute top-0 left-0 w-full h-full from-10% rounded-lg to-50%">
+              <div className="bg-linear-to-t from-[#111111] absolute top-0 left-0 w-full h-full from-10% rounded-lg to-50%">
                 <div className="absolute bottom-0 p-5 text-white flex justify-between items-center w-full">
                   <div className="flex flex-row items-center gap-3">
                     <Flag
