@@ -118,7 +118,7 @@ const AlbumCard: FC<AlbumCardProps> = ({ album, index, isFlipped, onFlip }) => {
 
             {/* Click indicator */}
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-              <div className="lexend bg-neutral-100 px-5 py-2 rounded-full">
+              <div className="lexend bg-neutral-100 px-5 py-2 rounded-full text-black">
                 Click to flip
               </div>
             </div>
