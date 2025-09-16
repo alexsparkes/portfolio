@@ -5,20 +5,19 @@ import {
   SiJavascript,
   SiNextdotjs,
   SiNodedotjs,
-  SiPlaywright,
   SiReact,
   SiSass,
   SiTailwindcss,
   SiTypescript,
   SiVuedotjs,
-  SiVisualstudiocode,
   SiGo,
   SiBun,
   SiPython,
-  SiCsharp,
+  SiSharp,
   SiVercel,
   SiRider,
 } from "@icons-pack/react-simple-icons";
+import { Code2 } from "lucide-react";
 
 type Skill = {
   name: string;
@@ -33,7 +32,7 @@ export const Skills: FC = () => {
         { name: "JavaScript", Icon: SiJavascript },
         { name: "TypeScript", Icon: SiTypescript },
         { name: "Python", Icon: SiPython },
-        { name: "C#", Icon: SiCsharp },
+        { name: "C#", Icon: SiSharp },
         { name: "Go", Icon: SiGo },
       ],
     },
@@ -63,13 +62,9 @@ export const Skills: FC = () => {
       ],
     },
     {
-      title: "Testing",
-      items: [{ name: "Playwright", Icon: SiPlaywright }],
-    },
-    {
       title: "Tools",
       items: [
-        { name: "VS Code", Icon: SiVisualstudiocode },
+        { name: "VS Code", Icon: Code2 },
         { name: "Rider", Icon: SiRider },
       ],
     },
