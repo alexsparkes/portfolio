@@ -74,129 +74,127 @@ const AlbumCard: FC<AlbumCardProps> = ({ album, index, isFlipped, onFlip }) => {
     }
   };
   return (
-    <div
-      ref={cardRef}
-      className="group h-96 w-full cursor-pointer"
-      style={{
-        transformStyle: "preserve-3d",
-        transition: isFlipped
-          ? "transform 0.6s ease-in-out"
-          : "transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease",
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onMouseEnter={handleMouseEnter}
-      onClick={handleClick}
-    >
-      {/* Flip Container */}
+    <div className="group w-full cursor-pointer">
+      {/* Flip Container for Album Cover Only */}
       <div
-        className="relative w-full h-full"
+        ref={cardRef}
+        className="h-80 w-full mb-4"
         style={{
           transformStyle: "preserve-3d",
-          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-          transition: "transform 0.6s ease-in-out",
+          transition: isFlipped
+            ? "transform 0.6s ease-in-out"
+            : "transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease",
         }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleMouseEnter}
+        onClick={handleClick}
       >
-        {/* Front Side - Album Artwork Only */}
         <div
-          className="aspect-square absolute inset-0 bg-card border rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+          className="relative w-full h-full"
           style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(0deg)",
+            transformStyle: "preserve-3d",
+            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+            transition: "transform 0.6s ease-in-out",
           }}
         >
-          <div className="relative w-full h-full">
-            <Image
-              src={album.artwork}
-              alt={`${album.title} by ${album.artist}`}
-              width={400}
-              height={400}
-              className="w-full h-full object-cover"
-            />
-            {/* Subtle overlay on hover */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
+          {/* Front Side - Album Artwork Only */}
+          <div
+            className="absolute inset-0 bg-card border rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+            style={{
+              backfaceVisibility: "hidden",
+              transform: "rotateY(0deg)",
+            }}
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={album.artwork}
+                alt={`${album.title} by ${album.artist}`}
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+              {/* Subtle overlay on hover */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
 
-            {/* Click indicator */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
-              <div className="lexend bg-neutral-100 px-5 py-2 rounded-full text-black">
-                Click to flip
+              {/* Click indicator */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                <div className="lexend bg-neutral-100 px-5 py-2 rounded-full text-black">
+                  Click to flip
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Back Side - Album Details */}
-        <div
-          className="absolute inset-0 bg-card border rounded-xl p-6 shadow-lg flex flex-col justify-between"
-          style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
-        >
-          {/* Header */}
-          <div className="mb-4">
-            <h3 className="text-xl font-semibold bodoni mb-1 text-primary">
-              {album.title}
-            </h3>
-            <p className="text-lg lexend text-muted-foreground">
-              {album.artist}
-            </p>
-          </div>
-
-          {/* Album Stats */}
-          <div className="flex flex-wrap gap-3 mb-4 text-sm lexend text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              {album.year}
+          {/* Back Side - Album Details */}
+          <div
+            className="absolute inset-0 bg-card border rounded-xl p-6 shadow-lg flex flex-col justify-between"
+            style={{
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
+            }}
+          >
+            {/* Album Stats */}
+            <div className="flex flex-wrap gap-3 mb-4 text-sm lexend text-muted-foreground">
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                {album.year}
+              </div>
+              <div className="flex items-center gap-1">
+                <Disc className="w-4 h-4" />
+                {album.tracks} tracks
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                {album.duration}
+              </div>
             </div>
-            <div className="flex items-center gap-1">
-              <Disc className="w-4 h-4" />
-              {album.tracks} tracks
+
+            {/* Description */}
+            <div className="flex-1 mb-4">
+              <p className="lexend text-sm text-muted-foreground leading-relaxed">
+                {album.description}
+              </p>
             </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
-              {album.duration}
+
+            {/* Favorite Track */}
+            <div className="mb-4 pt-3 border-t border-border/20">
+              <p className="lexend text-xs text-muted-foreground">
+                <span className="font-medium">Favorite track:</span>{" "}
+                {album.favorite_track}
+              </p>
             </div>
-          </div>
 
-          {/* Genre Tag */}
-          <div className="mb-4">
-            <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs lexend font-medium">
-              {album.genre}
-            </span>
-          </div>
-
-          {/* Description */}
-          <div className="flex-1 mb-4">
-            <p className="lexend text-sm text-muted-foreground leading-relaxed">
-              {album.description}
-            </p>
-          </div>
-
-          {/* Favorite Track */}
-          <div className="mb-4 pt-3 border-t border-border/20">
-            <p className="lexend text-xs text-muted-foreground">
-              <span className="font-medium">Favorite track:</span>{" "}
-              {album.favorite_track}
-            </p>
-          </div>
-
-          {/* Spotify Link */}
-          <div className="flex gap-2">
-            <Link
-              href={album.spotify_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 p-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <ExternalLink className="w-4 h-4" />
-              <span className="lexend text-sm font-medium">
-                Listen on Spotify
-              </span>
-            </Link>
+            {/* Spotify Link */}
+            <div className="flex gap-2">
+              <Link
+                href={album.spotify_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span className="lexend text-sm font-medium">
+                  Listen on Spotify
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Album Info - Always Visible Below */}
+      <div className="text-center">
+        <div className="flex justify-center">
+          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs lexend font-medium mb-3  ">
+            {album.genre}
+          </span>
+        </div>
+        <h3 className="text-lg font-semibold bodoni mb-1 text-foreground">
+          {album.title}
+        </h3>
+        <p className="lexend text-muted-foreground mb-2">{album.artist}</p>
       </div>
     </div>
   );
