@@ -1,0 +1,53 @@
+[
+  {
+    "company": "VISR Dynamics Ltd",
+    "slug": "visr-dynamics",
+    "role": "Software Developer",
+    "duration": "2024 - Present",
+    "location": "Hull, UK",
+    "description": "Developing educational web applications for immersive experiences and creating website for brand presence.",
+    "logo": "/companies/visr-dynamics.png",
+    "website": "https://visrdynamics.com",
+    "projects": [
+      {
+        "name": "stage.online",
+        "description": "Stage management platform for event organizers and performers",
+        "url": "https://stage.online",
+        "technologies": [
+          "Vue.js",
+          "Nuxt",
+          "TypeScript",
+          "Node.js",
+          "Figma",
+          "Docker",
+          "Git",
+          "Azure",
+          "TailwindCSS"
+        ]
+      },
+      {
+        "name": "design.stage.online",
+        "description": "Design tools and resources for stage professionals",
+        "url": "https://design.stage.online",
+        "technologies": ["Vue.js", "Typescript", "Babylon", "Sass", "Git"]
+      }
+    ],
+    "responsibilities": [
+      "Developed and maintained the company dashboard using React and Next.js",
+      "Built responsive landing pages optimized for performance",
+      "Implemented user authentication and authorization systems",
+      "Collaborated with design team to create pixel-perfect UI components",
+      "Optimized application performance and user experience"
+    ],
+    "technologies": [
+      "Vue.js",
+      "Nuxt",
+      "TypeScript",
+      "Node.js",
+      "Figma",
+      "Docker",
+      "Git",
+      "Azure"
+    ]
+  }
+]
