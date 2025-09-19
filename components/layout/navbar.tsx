@@ -1,20 +1,24 @@
 "use client";
 
 import { SiGithub as Github } from "@icons-pack/react-simple-icons";
-import { Linkedin } from "lucide-react";
+import { Linkedin, Menu, X } from "lucide-react";
 import { ModeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 export const Navbar = () => {
   const pathname = usePathname();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const navRef = useRef<HTMLElement>(null);
   const itemRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
   const navItems = [
     { href: "/work", label: "Work" },
@@ -41,6 +45,40 @@ export const Navbar = () => {
     }
   }, [indicatorItem]);
 
+  // Lock body scroll when sheet open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [mobileOpen]);
+
+  // Focus close button when opening (basic focus management)
+  useEffect(() => {
+    if (mobileOpen) {
+      // Delay to ensure element is mounted
+      const t = setTimeout(() => closeBtnRef.current?.focus(), 0);
+      return () => clearTimeout(t);
+    }
+  }, [mobileOpen]);
+
+  // Auto-close on route change (e.g., Back/Forward navigation)
+  useEffect(() => {
+    if (mobileOpen) setMobileOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
+  // Close on Escape
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   const Logo = (
     <svg
       width="35.25"
@@ -58,7 +96,7 @@ export const Navbar = () => {
   return (
     <div className="absolute top-0 flex flex-row items-center justify-center min-w-full mt-5">
       <nav className="flex flex-row items-center justify-between xl:w-3/5 w-4/5">
-        <div className="flex flex-row items-center gap-10 text-lg">
+        <div className="flex flex-row items-center gap-6 md:gap-10 text-lg w-full">
           <Link href="/" aria-label="Home">
             {Logo}
           </Link>
@@ -96,8 +134,23 @@ export const Navbar = () => {
               </Link>
             ))}
           </nav>
+
+          {/* Mobile trigger */}
+          <div className="ml-auto flex items-center md:hidden">
+            <Button
+              variant="default"
+              size="icon"
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
+              onClick={() => setMobileOpen(true)}
+            >
+              <Menu className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-row items-center gap-5">
+
+        <div className="hidden md:flex flex-row items-center gap-3 md:gap-5">
           <div className="flex flex-row gap-2">
             <Button variant="default" size="icon" asChild>
               <Link
@@ -127,6 +180,129 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      {/* Mobile full-screen sheet (Framer Motion) */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <div
+            key="mobile-root"
+            id="mobile-nav"
+            className="fixed inset-0 z-50 md:hidden"
+          >
+            {/* Backdrop */}
+            <motion.div
+              key="backdrop"
+              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
+              aria-hidden="true"
+              onClick={() => setMobileOpen(false)}
+            />
+
+            {/* Panel */}
+            <motion.div
+              key="panel"
+              className="absolute inset-y-0 left-0 bg-background transform-gpu shadow-2xl"
+              role="dialog"
+              aria-modal="true"
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={
+                prefersReducedMotion
+                  ? { duration: 0 }
+                  : { type: "spring", stiffness: 260, damping: 28, mass: 0.9 }
+              }
+              style={{
+                willChange: "transform",
+                // Leave a small interactive gap on the right for closing via backdrop
+                width: "calc(100% - max(24px, env(safe-area-inset-right)))",
+              }}
+              onPanEnd={(_, info) => {
+                if (info.offset.x < -80 || info.velocity.x < -400) {
+                  setMobileOpen(false);
+                }
+              }}
+            >
+              <div
+                className="flex h-full flex-col p-6"
+                style={{
+                  paddingTop: "max(1.5rem, env(safe-area-inset-top))",
+                  paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))",
+                  paddingLeft: "max(1.5rem, env(safe-area-inset-left))",
+                  paddingRight: "max(1.5rem, env(safe-area-inset-right))",
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <Link
+                    href="/"
+                    aria-label="Home"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {Logo}
+                  </Link>
+                  <Button
+                    variant="default"
+                    size="icon"
+                    aria-label="Close menu"
+                    onClick={() => setMobileOpen(false)}
+                    ref={closeBtnRef}
+                  >
+                    <X className="h-5 w-5" />
+                  </Button>
+                </div>
+                <div className="mt-10 flex-1">
+                  <div className="flex flex-col">
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={`lexend block rounded-xl px-4 py-4 text-2xl transition-colors ${
+                          pathname === item.href
+                            ? "text-foreground"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <Button variant="default" size="icon" asChild>
+                      <Link
+                        href="https://github.com/alexsparkes"
+                        aria-label="Github"
+                        target="_blank"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <Github />
+                      </Link>
+                    </Button>
+                    <Button variant="default" size="icon" asChild>
+                      <Link
+                        href="https://www.linkedin.com/in/alex-sparkes/"
+                        aria-label="LinkedIn"
+                        target="_blank"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <Linkedin />
+                      </Link>
+                    </Button>
+                    <div className="ml-auto">
+                      <ModeToggle />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
