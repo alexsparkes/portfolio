@@ -3,9 +3,9 @@ import experience from "@/data/experience.json";
 import { CompanyDetail } from "@/components/sections/company-detail";
 
 interface CompanyPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -15,7 +15,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CompanyPageProps) {
-  const company = experience.find((company) => company.slug === params.slug);
+  const resolvedParams = await params;
+  const company = experience.find(
+    (company) => company.slug === resolvedParams.slug
+  );
 
   if (!company) {
     return {
@@ -29,8 +32,11 @@ export async function generateMetadata({ params }: CompanyPageProps) {
   };
 }
 
-export default function CompanyPage({ params }: CompanyPageProps) {
-  const company = experience.find((company) => company.slug === params.slug);
+export default async function CompanyPage({ params }: CompanyPageProps) {
+  const resolvedParams = await params;
+  const company = experience.find(
+    (company) => company.slug === resolvedParams.slug
+  );
 
   if (!company) {
     notFound();
