@@ -19,7 +19,7 @@ const nextConfig = {
     ],
     // Enable image optimization for better performance
     formats: ["image/webp", "image/avif"],
-    // minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year cache
+    minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year cache
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
