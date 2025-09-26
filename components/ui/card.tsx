@@ -31,8 +31,9 @@ export const Card: FC<CardProps> = ({
         <Image
           className="rounded-lg"
           src={src}
-          width={500}
-          height={500}
+          width={320}
+          height={208}
+          sizes="(min-width: 1280px) 33vw, (min-width: 640px) 45vw, 90vw"
           alt={name}
         />
         <h3 className="text-3xl lexend font-semibold mt-3">{name}</h3>

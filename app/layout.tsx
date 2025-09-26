@@ -107,6 +107,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             href="https://cloud.umami.is"
             crossOrigin="anonymous"
           />
+          <link
+            rel="preconnect"
+            href="https://cdn.muetab.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preconnect"
+            href="https://i.scdn.co"
+            crossOrigin="anonymous"
+          />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

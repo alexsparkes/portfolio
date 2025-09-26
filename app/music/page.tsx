@@ -1,5 +1,5 @@
-import Music from "@/components/sections/music";
 import type { Metadata } from "next";
+import { MusicClient } from "./music-client";
 
 export const metadata: Metadata = {
   title: "Music",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function MusicPage() {
   return (
     <div className="pt-20">
-      <Music />
+      <MusicClient />
     </div>
   );
 }
