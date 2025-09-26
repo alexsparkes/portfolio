@@ -1,14 +1,14 @@
 import { Gallery } from "@/components/sections/gallery";
-
-interface Metadata {
-  title: string;
-  description: string;
-}
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gallery - Alex Sparkes",
+  title: "Gallery",
   description:
     "Explore my photography gallery featuring moments captured from around the world.",
+  alternates: {
+    canonical: "/gallery",
+  },
+  keywords: ["Photography", "Travel Photos", "Alex Sparkes Gallery"],
 };
 
 export default function GalleryPage() {

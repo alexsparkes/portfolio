@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
+import type { Metadata, Viewport } from "next";
 import { ReactNode } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -23,18 +24,70 @@ const lexendDeca = Lexend_Deca({
   variable: "--font-lexend-deca",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL("https://alexspark.es"),
+  title: {
+    default: "Alex Sparkes - Portfolio",
+    template: "%s | Alex Sparkes",
+  },
+  description: "Alex Sparkes' portfolio website",
+  keywords: [
+    "Alex Sparkes",
+    "Full Stack Developer",
+    "TypeScript",
+    "Next.js",
+    "Web Development Portfolio",
+    "UK Developer",
+  ],
+  authors: [{ name: "Alex Sparkes", url: "https://alexspark.es" }],
+  creator: "Alex Sparkes",
+  publisher: "Alex Sparkes",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Alex Sparkes - Portfolio",
     description: "Alex Sparkes' portfolio website",
     type: "website",
     locale: "en_GB",
-    url: "https://alexspark.es",
-    site_name: "Alex Sparkes - Portfolio",
+    url: "/",
+    siteName: "Alex Sparkes - Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@alexmsparkes",
+    creator: "@alexmsparkes",
+    title: "Alex Sparkes - Portfolio",
+    description: "Alex Sparkes' portfolio website",
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#fefae1",
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Alex Sparkes",
+    url: "https://alexspark.es",
+    jobTitle: "Full Stack Developer",
+    email: "mailto:alexsparkes@gmail.com",
+    sameAs: [
+      "https://github.com/alexsparkes",
+      "https://www.linkedin.com/in/alex-sparkes/",
+      "https://x.com/alexmsparkes",
+    ],
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "University of Hull",
+    },
+  };
+
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -53,6 +106,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             rel="preconnect"
             href="https://cloud.umami.is"
             crossOrigin="anonymous"
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(structuredData),
+            }}
           />
         </head>
         <body

@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://alexspark.es/sitemap.xml",
+    host: "https://alexspark.es",
   };
 }
